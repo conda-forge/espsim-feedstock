@@ -21,10 +21,10 @@ build:
 
 requirements:
   host:
-    - python >=3.8
+    - python ${{ python_min }}.*
     - pip
   run:
-    - python >=3.8
+    - python >=${{ python_min }}
     - rdkit
     - numpy
     - scipy
@@ -42,6 +42,7 @@ tests:
     requirements:
       run:
         - pip
+        - python ${{ python_min }}.*
     script:
       - pip check
       - python scripts/test_imports.py
