@@ -36,15 +36,14 @@ tests:
       imports:
         - espsim
       python_version: ${{ python_min }}.*
+      pip_check: false  # cuz of https://github.com/conda-forge/qcelemental-feedstock/issues/54
   - files:
       source:
         - scripts/
     requirements:
       run:
-        - pip
         - python ${{ python_min }}.*
     script:
-      - pip check
       - python scripts/test_imports.py
       - python scripts/test_esp_function.py
       - python scripts/test_embedalignscore.py
